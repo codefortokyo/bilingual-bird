@@ -2,12 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var loopback = require('../loopback');
-var tweet = require('../tweet');
+var bird = require('../duplicity');
 
-var config = require('../config');
-
-
-router.get('/translate', function(req, res, next) {
+router.get('/translate', function(req, res) {
   if (req.query.text === void 0)
   {
     return res.end('text is required');
@@ -26,8 +23,15 @@ router.get('/translate', function(req, res, next) {
   });
 });
 
-router.post('/tweet', function(req, res, next) {
-
+router.post('/tweet', function(req, res) {
+  bird(req.body, function(e, d)
+  {
+    if (e != null)
+    {
+      return res.end(e);
+    }
+    return res.json(d);
+  });
 });
 
 module.exports = router;

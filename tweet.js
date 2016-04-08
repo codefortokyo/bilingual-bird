@@ -15,13 +15,31 @@ var config = require('./config');
   var tweet = function(text, cb)
   {
     try {
-      client.post('statuses/update', {status: text}, function(error, tweet_body, response){
-        if(error)
-        {
-          return cb(error, null);
-        }
-        return cb(null, response);
-      });
+      client.post('statuses/update',
+                  {status: text, trim_user: 1},
+                  function(error, tweet_body){
+                    if(error)
+                    {
+                      return cb(error, null);
+                    }
+                    return cb(null, tweet_body);
+                  });
+    } catch (e) {
+      return cb(e, null);
+    }
+  };
+  tweet.reply = function(text, tweetid, cb)
+  {
+    try {
+      client.post('statuses/update',
+                  {status: text, in_reply_to_status_id: tweetid, trim_user: 1},
+                  function(error, tweet_body){
+                    if(error)
+                    {
+                      return cb(error, null);
+                    }
+                    return cb(null, tweet_body);
+                  });
     } catch (e) {
       return cb(e, null);
     }
