@@ -39,7 +39,9 @@ var config = require('./config');
           res.on('data', function (chunk) {
             body += chunk;
           }).on('end', function () {
-            cb(null, body);
+            cb(null, body.trim()
+                         .replace(/^"(.*)"$/,'$1')
+                         .replace(/^「(.*)」$/, '$1'));
           });
         }).on('error', function (err) {
           cb(err, null);

@@ -11,10 +11,13 @@
     }
     var article = root.append('article');
     var input = article.append('textarea');
-    var en = article.append('p');
-    var ja = article.append('p');
+    var cog = article.append('i')
+      .attr('class', 'fa fa-cog fa-spin')
+      .style('visibility', 'hidden');
+
+    var en = article.append('textarea');
+    var ja = article.append('textarea');
     var timer = null;
-    var blocking = false;
     var tr = function()
     {
       d3.json('/api/translate?text='+input.property('value'),
@@ -22,12 +25,12 @@
               {
                 if (e != null)
                 {
-                  console.log(e);
                   return;
                 }
                 en.text(d.en);
                 ja.text(d.ja);
                 timer = null;
+                cog.style('visibility', 'hidden');
               });
     };
     input.on('keyup', function()
@@ -36,6 +39,7 @@
       {
         clearTimeout(timer);
       }
+      cog.style('visibility', 'visible');
       timer = setTimeout(tr, 5000);
     });
   };
