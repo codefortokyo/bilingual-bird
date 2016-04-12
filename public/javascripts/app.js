@@ -9,13 +9,11 @@
     {
       root = d3.select(_);
     }
-    var header = root.append('header');
-    header.append('div').text('duplicitous bird');
-    var article = root.append('article');
-    var footer = root.append('footer');
-    footer.append('span').style('margin-right', '4px').text('made with');
-    footer.append('i').attr('class', 'fa fa-heart').attr('aria-hidden', true);
-    footer.append('span').style('margin-left', '4px').text('by Code for Tokyo.');
+    var article = root.select('article');
+    if (article.size() === 0)
+    {
+      article = root.append('article');
+    }
     var input = article.append('textarea');
     var cog = article.append('i')
       .attr('class', 'fa fa-cog fa-spin')
