@@ -6,3 +6,89 @@ body {
 a {
   color: #00B7FF;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 500px;
+  text-align: center;
+  height: 24px;
+}
+footer {
+  width: 500px;
+  text-align: center;
+}
+article {
+  width: 500px;
+  margin: 10px 0;
+}
+textarea {
+  width: 500px;
+  height: 64px;
+  resize: none;
+}
+ul {
+  list-style: none;
+}
+
+li {
+  width: 500px;
+}
+
+.cogholder {
+  position: absolute;
+  width: 500px;
+  height: 64px;
+  background-color: rgba(0,0,0,0.3);
+  text-align: center;
+  font-size: 50px;
+  color: #FFF;
+}
+
+.clearfix::after {
+  clear: both;
+  content: ".";
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  display: block;
+}
+
+.tweetbtn {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 32px;
+  font-size: 24px;
+  text-align: center;
+  background-color: #00aced;
+  color: #FFF;
+}
+.popuplayer {
+  width: 500px;
+  top: 100px;
+  position: absolute;
+}
+.popup {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  color: #FFF;
+}
+.error {
+  background-color: #ed0040;
+}
+
+.warning {
+  background-color: #edce00;
+}
+
+.success {
+  background-color: #00ed34;
+}
