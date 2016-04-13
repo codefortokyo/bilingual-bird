@@ -14,14 +14,21 @@
     {
       article = root.append('article');
     }
-    var ja = article.append('textarea');
-    var cog = article.append('i')
-      .attr('class', 'fa fa-cog fa-spin')
-      .style('visibility', 'hidden');
+    var ul = article.append('ul');
+    var jaHolder = ul.append('li');
+    var enHolder = ul.append('li');
+    var btnHolder = ul.append('li');
+    var twHolder = ul.append('li');
+    var ja = jaHolder.append('textarea');
+    var cog = enHolder.append('div')
+        .attr('class', 'cogholder')
+        .style('visibility', 'hidden');
+    cog.append('i')
+        .attr('class', 'fa fa-cog fa-spin cog');
 
-    var en = article.append('textarea');
-    var tweet = article.append('a');
-    tweet.attr('href', '#')
+    var en = enHolder.append('textarea');
+    var btn = btnHolder.append('a');
+    btn.attr('href', '#')
       .on('click', function() {
         d3.event.preventDefault();
         d3.json('/api/tweet')
@@ -35,7 +42,7 @@
             }
           });
       });
-    tweet.append('i')
+    btn.append('i')
       .attr('class', 'fa fa-twitter')
       .attr('aria-hidden', true);
     var timer = null;

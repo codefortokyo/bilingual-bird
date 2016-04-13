@@ -7,8 +7,48 @@ a {
   color: #00B7FF;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
 textarea {
-  width: 400px;
+  width: 500px;
   height: 64px;
   resize: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  width: 100%;
+}
+
+.cogholder {
+  position: absolute;
+  width: 500px;
+  height: 64px;
+  background-color: rgba(0,0,0,0.3);
+  text-align: center;
+  font-size: 50px;
+  color: #FFF;
+}
+
+.clearfix::after {
+  clear: both;
+  content: ".";
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  display: block;
+}
+
+.tweetbtn {
+  margin: 0 auto;
+  width: 300px;
+  height: 32px;
 }
