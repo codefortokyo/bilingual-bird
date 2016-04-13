@@ -8,5 +8,7 @@ a {
 }
 
 textarea {
+  width: 400px;
+  min-height: 64px;
   resize: none;
 }
