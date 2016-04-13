@@ -27,8 +27,9 @@
         .attr('class', 'fa fa-cog fa-spin cog');
 
     var en = enHolder.append('textarea');
-    var btn = btnHolder.append('a');
-    btn.attr('href', '#')
+    var btn = btnHolder.append('a')
+      .attr('class', 'tweetbtn')
+      .attr('href', '#')
       .on('click', function() {
         d3.event.preventDefault();
         d3.json('/api/tweet')

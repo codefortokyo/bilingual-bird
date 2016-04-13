@@ -9,7 +9,7 @@ a {
 
 * {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -24,7 +24,7 @@ ul {
 }
 
 li {
-  width: 100%;
+  width: 500px;
 }
 
 .cogholder {
@@ -48,7 +48,12 @@ li {
 }
 
 .tweetbtn {
+  display: block;
   margin: 0 auto;
-  width: 300px;
+  width: 100px;
   height: 32px;
+  font-size: 24px;
+  text-align: center;
+  background-color: #00aced;
+  color: #FFF;
 }
