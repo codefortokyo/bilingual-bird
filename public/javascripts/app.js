@@ -14,13 +14,12 @@
     {
       article = root.append('article');
     }
-    var input = article.append('textarea');
+    var ja = article.append('textarea');
     var cog = article.append('i')
       .attr('class', 'fa fa-cog fa-spin')
       .style('visibility', 'hidden');
 
     var en = article.append('textarea');
-    var ja = article.append('textarea');
     var tweet = article.append('a');
     tweet.attr('href', '#')
       .on('click', function() {
@@ -41,7 +40,7 @@
       .attr('aria-hidden', true);
     var timer = null;
     var tr = function() {
-      d3.json('/api/translate?text='+input.property('value'),
+      d3.json('/api/translate?text='+ja.property('value'),
               function(e, d) {
                 if (e != null) {
                   return;
@@ -52,7 +51,7 @@
                 cog.style('visibility', 'hidden');
               });
     };
-    input.on('keyup', function() {
+    ja.on('keyup', function() {
       if (timer != null) {
         clearTimeout(timer);
       }
