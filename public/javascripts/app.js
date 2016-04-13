@@ -18,7 +18,23 @@
     var jaHolder = ul.append('li');
     var enHolder = ul.append('li');
     var btnHolder = ul.append('li');
-    var twHolder = ul.append('li');
+    var popupLayer = article.append('div')
+      .attr('class', 'popuplayer');
+    app.popup = function(_)
+    {
+      var type = 'success';
+      if (arguments.length > 1) {
+        type = arguments[1];
+      }
+      var duration = 5000;
+      if (arguments.length > 2) {
+        duration = +arguments[2];
+      }
+      popupLayer.append('div')
+        .text(_)
+        .attr('class', type + ' popup')
+        .transition().delay(duration).remove();
+    };
     var ja = jaHolder.append('textarea');
     var cog = enHolder.append('div')
         .attr('class', 'cogholder')
@@ -39,8 +55,10 @@
             en: en.property('value')
           }), function(e, d) {
             if (e != null) {
+              app.popup('tweet failed', 'error');
               return;
             }
+            app.popup('tweet success');
           });
       });
     btn.append('i')

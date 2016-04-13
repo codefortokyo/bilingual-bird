@@ -13,12 +13,24 @@ a {
   padding: 0;
 }
 
+header {
+  width: 500px;
+  text-align: center;
+  height: 24px;
+}
+footer {
+  width: 500px;
+  text-align: center;
+}
+article {
+  width: 500px;
+  margin: 10px 0;
+}
 textarea {
   width: 500px;
   height: 64px;
   resize: none;
 }
-
 ul {
   list-style: none;
 }
@@ -56,4 +68,27 @@ li {
   text-align: center;
   background-color: #00aced;
   color: #FFF;
+}
+.popuplayer {
+  width: 500px;
+  top: 32px;
+  position: absolute;
+}
+.popup {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20px;
+  color: #FFF;
+}
+.error {
+  background-color: #ed0040;
+}
+
+.warning {
+  background-color: #edce00;
+}
+
+.success {
+  background-color: #00ed34;
 }
